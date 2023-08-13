@@ -62,7 +62,7 @@ Because at least one episode has to be hosted on the GPU, the program is quite m
 ### For datasets without domain shift
 Copy the same command for training and add `--eval`. For example, 5-way-5-shot training command of CIFAR-FS writes as：
 ```
-python main.py --output outputs/your_experiment_name --dataset cifar_fs --epoch 20 --lr 5e-5 --arch dino_small_patch16 --device cuda:0 --nSupport 5 --fp16 --eval
+python main.py --output outputs/your_experiment_name --dataset cifar_fs --epoch 20 --lr 5e-5 --arch dino_small_patch16 --device cuda:1 --nSupport 1 --fp16 --eval --deploy finetune --resume /idas/users/songmingchen/pmf_cvpr22-main/outputs/cifar_5way_1shot_pretarin_td=x1/best.pth --ada_steps 100 --ada_lr 0.0001 --aug_prob 0.9 --aug_types color translation
 ```
 
 ### Cross-domain few-shot learning
