@@ -3,7 +3,7 @@
 Our proposed self-prompt mechanism generates accurate self-prompt information by selecting deep layer features of
 the network in spatial and channel dimensions and then transmitting this self-prompt information to the deeper layers of the
 network, thereby modifying the calculation process of self-attention to guide network training.
-![alt text](2.png)
+![alt text](pipline.png)
 
 ## Requirements
 Listed in `requirements.txt` Install with：
