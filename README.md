@@ -74,13 +74,6 @@ python test_bscdfsl.py --test_n_way 5 --n_shot 5 --device cuda:0 --arch dino_sma
 ```
 Changing `--n_shot` to 1/5/20 to evaluate other settings.
 
-## Visualization
-FSViT is the first few-shot classification method to learn the multi-scale feature sets of images via ViT. FSViT extracts rich multi-scale information with the attention-aware grid pooling operation and perform accurate classification with the patch-to-patch matching metric. It exploits the full potential of ViT for few-shot classification tasks, and outperforms existing ViT models.
-![alt text](2.png)
-
-Visualization of the relationship between multi-scale feature extraction and patch to patch matching metric by FSViT. We evaluated them by FSViT (ViT-small and ViT-base) and averaged over the test set of 5-way 1-shot/5-shot tasks on CFAIR-FS and Mini-Imagenet. The best classification performance is achieved when the grid pooling stride is set to 3, the number of extracted multi-scale features is 311, and the $m$ in top-m is set to 5.
-![alt text](9.png)
-
 ## Citing P>M>F pipeline for few-shot learning 
 ```
 @inproceedings{hu2022pmf,
