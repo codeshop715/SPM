@@ -77,5 +77,5 @@ Changing `--n_shot` to 1/5/20 to evaluate other settings.
 ## Acknowledgment
 ```
 Our implementation is mainly based on the following codebases. We gratefully thank the authors for their wonderful works.
-https://github.com/hushell/pmf_cvpr22
+[PMF]([https://github.com/yunhuiguo/CVPR-2021-L2ID-Classification-Challenges#target-domains](https://github.com/hushell/pmf_cvpr22)https://github.com/hushell/pmf_cvpr22)
 ```
