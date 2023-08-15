@@ -76,6 +76,5 @@ Changing `--n_shot` to 1/5/20 to evaluate other settings.
 
 ## Acknowledgment
 ```
-Our implementation is mainly based on the following codebases. We gratefully thank the authors for their wonderful works.
-[https://github.com/hushell/pmf_cvpr22](https://github.com/hushell/pmf_cvpr22)
+Our implementation is mainly based on the following codebases. We gratefully thank the authors for their wonderful works.[https://github.com/hushell/pmf_cvpr22](https://github.com/hushell/pmf_cvpr22)
 ```
