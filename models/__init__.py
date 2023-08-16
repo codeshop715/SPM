@@ -18,7 +18,7 @@ def get_backbone(args):
         if not os.path.exists(pretrained_weights):
             try:
                 import wget
-                os.makedirs('pretrained_ckpts', exist_ok=True)
+                os.makedirs('pretrained_ckpts', exist_ok=False)
                 wget.download(url, pretrained_weights)
             except:
                 print(f'Cannot download pretrained weights from {url}. Check if `pip install wget` works.')
@@ -33,7 +33,7 @@ def get_backbone(args):
         url = "dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth"
         state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
 
-        model.load_state_dict(state_dict, strict=True)
+        model.load_state_dict(state_dict, strict=False)
         print('Pretrained weights found at {}'.format(url))
 
 
