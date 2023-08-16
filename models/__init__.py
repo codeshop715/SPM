@@ -6,27 +6,7 @@ from .deploy import ProtoNet_Finetune, ProtoNet_Auto_Finetune, ProtoNet_AdaTok, 
 from collections import OrderedDict
 
 def get_backbone(args):
-    if args.arch == 'vit_base_patch16_224_in21k':
-        from .vit_google import VisionTransformer, CONFIGS
-
-        config = CONFIGS['ViT-B_16']
-        model = VisionTransformer(config, 224)
-
-        url = 'https://storage.googleapis.com/vit_models/imagenet21k/ViT-B_16.npz'
-        pretrained_weights = 'pretrained_ckpts/vit_base_patch16_224_in21k.npz'
-
-        if not os.path.exists(pretrained_weights):
-            try:
-                import wget
-                os.makedirs('pretrained_ckpts', exist_ok=False)
-                wget.download(url, pretrained_weights)
-            except:
-                print(f'Cannot download pretrained weights from {url}. Check if `pip install wget` works.')
-
-        model.load_from(np.load(pretrained_weights))
-        print('Pretrained weights found at {}'.format(pretrained_weights))
-
-    elif args.arch == 'dino_base_patch16':
+   if args.arch == 'dino_base_patch16':
         from . import vision_transformer as vit
 
         model = vit.__dict__['vit_base'](patch_size=16, num_classes=0)
