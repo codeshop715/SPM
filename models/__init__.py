@@ -6,15 +6,19 @@ from .deploy import ProtoNet_Finetune, ProtoNet_Auto_Finetune, ProtoNet_AdaTok, 
 from collections import OrderedDict
 
 def get_backbone(args):
-   if args.arch == 'dino_base_patch16':
+    if args.arch == 'dino_base_patch16':
         from . import vision_transformer as vit
 
         model = vit.__dict__['vit_base'](patch_size=16, num_classes=0)
-        url = "dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth"
-        state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
-
-        model.load_state_dict(state_dict, strict=False)
-        print('Pretrained weights found at {}'.format(url))
+        # url = "dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth"
+        # state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
+        #
+        # model.load_state_dict(state_dict, strict=False)
+        # print('Pretrained weights found at {}'.format(url))
+        if not args.no_pretrain:
+            pretrain_model = torch.load('your pretraind model',map_location='cpu')["model"]
+            model.load_state_dict(pretrain_model, strict=False)
+            print('Pretrained weights found at {}'.format(url))
 
 
     elif args.arch == 'dino_small_patch16':
@@ -23,11 +27,8 @@ def get_backbone(args):
         model = vit.__dict__['vit_small'](patch_size=16, num_classes=0)
 
         if not args.no_pretrain:
-            url = "dino_deitsmall16_pretrain/dino_deitsmall16_pretrain.pth"
-            state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
-
-            # model.load_state_dict(state_dict, strict=True)
-            model.load_state_dict(state_dict, strict=False)
+            pretrain_model = torch.load('your pretraind model',map_location='cpu')["model"]
+            model.load_state_dict(pretrain_model, strict=False)
             print('Pretrained weights found at {}'.format(url))
 
 
@@ -46,6 +47,11 @@ def get_backbone(args):
     elif args.arch == 'vit_tiny':
         from . import vision_transformer as vit
         model = vit.__dict__['vit_tiny'](patch_size=16, num_classes=0)
+
+        if not args.no_pretrain:
+            pretrain_model = torch.load('your pretraind model',map_location='cpu')["model"]
+            model.load_state_dict(pretrain_model, strict=False)
+            print('Pretrained weights found at {}'.format(url))
 
     else:
         raise ValueError(f'{args.arch} is not conisdered in the current code.')
