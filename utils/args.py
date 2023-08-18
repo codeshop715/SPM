@@ -43,7 +43,7 @@ def get_args_parser():
     parser.add_argument('--cdfsl_domains', nargs="+", default=['EuroSAT', 'ISIC', 'CropDisease', 'ChestX'], help='CDFSL datasets')
 
     # Model params
-    parser.add_argument('--arch', default='dino_small_patch16', type=str,
+    parser.add_argument('--arch', default='vit_tiny', type=str,
                         help='Architecture of the backbone.')
     parser.add_argument('--patch_size', default=16, type=int, help='Patch resolution of the model.')
     parser.add_argument('--pretrained_weights', default='', type=str, help="Path to pretrained weights to evaluate.")
