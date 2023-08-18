@@ -6,7 +6,7 @@ from .deploy import ProtoNet_Finetune, ProtoNet_Auto_Finetune, ProtoNet_AdaTok, 
 from collections import OrderedDict
 
 def get_backbone(args):
-    if args.arch == 'dino_base_patch16':
+    if args.arch == 'vit_base':
         from . import vision_transformer as vit
 
         model = vit.__dict__['vit_base'](patch_size=16, num_classes=0)
@@ -16,7 +16,7 @@ def get_backbone(args):
             print('Pretrained weights found at {}'.format(url))
 
 
-    elif args.arch == 'dino_small_patch16':
+    elif args.arch == 'vit_small_':
         from . import vision_transformer as vit
 
         model = vit.__dict__['vit_small'](patch_size=16, num_classes=0)
