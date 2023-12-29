@@ -1,4 +1,6 @@
 # SPM: Self-Prompt Mechanism for Few-Shot Image Recognition
+## News
+Our paper was accepted by AAAI2024.
 ## Pipeline
 Our proposed self-prompt mechanism generates accurate self-prompt information by selecting deep layer features of
 the network in spatial and channel dimensions and then transmitting this self-prompt information to the deeper layers of the
